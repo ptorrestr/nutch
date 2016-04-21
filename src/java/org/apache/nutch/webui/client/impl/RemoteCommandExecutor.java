@@ -58,7 +58,7 @@ public class RemoteCommandExecutor {
       String jobId = client.executeJob(command.getJobConfig());
       Future<JobInfo> chekerFuture = executor
           .submit(new JobStateChecker(jobId));
-      return checkerFuture.get();
+      return chekerFuture.get();
       //return chekerFuture.get(getTimeout(command), TimeUnit.MILLISECONDS);
     } catch (Exception e) {
       log.error("Remote command failed", e);
